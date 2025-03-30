@@ -1,0 +1,11 @@
+CREATE USER test_usr WITH PASSWORD '1234';
+CREATE DATABASE test OWNER test_usr;
+GRANT ALL PRIVILEGES ON DATABASE test TO test_usr;
+\c test
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    age INT
+);
+INSERT INTO users (name, age) VALUES ('Alice', 30);
+INSERT INTO users (name, age) VALUES ('Bob', 25);
